@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToDo.vue component should render without crashing 1`] = `
+<div class="todoContainer">
+  <div class="todoIsDone true">
+    [DONE]
+  </div>
+  <div class="todoText">
+    <p>test</p>
+  </div>
+</div>
+`;

@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateNewTodo.vue component should render without crashing 1`] = `<div class="addContainer"><input type="text" class="addInput"> <button class="addButton">Add</button></div>`;

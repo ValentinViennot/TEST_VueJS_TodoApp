@@ -1,20 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <h1>
+      ToDo list 
+    </h1>
+    <div class="todosContainer">
+      <ToDo v-for="todo of todos" v-bind:key="todo.id" v-bind:todo="todo" />
+    </div>
+    <CreateNewTodo v-on:new-todo="handleNewTodo" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import ToDo from './components/ToDo.vue';
+import CreateNewTodo from './components/CreateNewTodo.vue';
+import ToDoModel from '@/models/ToDoModel';
 
 @Component({
   components: {
-    HelloWorld,
-  },
+    ToDo,
+    CreateNewTodo
+  }
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  todos: ToDoModel[] = require('./assets/todos.json');
+
+  handleNewTodo(newTodo: ToDoModel) {
+    this.todos.push(newTodo);
+  }
+}
 </script>
 
 <style>
@@ -25,5 +39,11 @@ export default class App extends Vue {}
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.todosContainer {
+  width: 50%;
+  min-width: 300px;
+  margin: auto;
 }
 </style>
